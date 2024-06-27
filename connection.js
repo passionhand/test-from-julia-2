@@ -1,14 +1,13 @@
-const mongoose = require('mongoose');
+// You can safely remove the initialization of the connectionManager object once you have selected an ORM to use
+let connectionManager = {getConnection: () => {}, clearDatabase: () => {}, closeConnection: () => {}};
 
-const connectDB = async () => {
-  try {
-    await mongoose.connect('mongodb://localhost:27017/stock_trades', {
-    });
-    console.log('MongoDB connected.');
-  } catch (error) {
-    console.error('Error connecting to MongoDB', error);
-    process.exit(1);
-  }
-};
+// Uncomment the code below to use Sequelize ORM
+// const SequelizeConnection = require('./lib/sequelize.connection');
+// connectionManager = new SequelizeConnection();
 
-module.exports = connectDB;
+
+// Uncomment the code below to use Mongoose ORM
+// const MongooseConnection = require('./lib/mongoose.connection');
+// connectionManager = new MongooseConnection();
+
+module.exports = connectionManager;
