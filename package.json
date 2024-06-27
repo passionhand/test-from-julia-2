@@ -6,7 +6,7 @@
     "start": "node bin/www",
     "prestart": "npm install",
     "pretest": "npm install",
-    "test": "cross-env PORT=8001 ./node_modules/.bin/mocha --reporter mocha-multi-reporters --reporter-options configFile=config.json --exit"
+    "test": "cross-env PORT=8443 ./node_modules/.bin/mocha --reporter mocha-multi-reporters --reporter-options configFile=config.json --exit"
   },
   "dependencies": {
     "chai": "^4.3.7",
